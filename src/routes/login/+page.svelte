@@ -1,0 +1,8 @@
+<script lang="ts">
+  import { ArrowLeft, Eye, EyeOff, BookOpen } from 'lucide-svelte';
+  let showPassword = false;
+  let email = '';
+  let password = '';
+</script>
+<svelte:head><title>Log in · THE ELITES NURSES</title></svelte:head>
+<div class="auth-page"><a href="/" class="auth-back"><ArrowLeft size={16}/> Back to home</a><div class="auth-card"><a class="brand auth-brand" href="/"><span class="brand-mark">E<span>+</span></span><span class="brand-name">THE ELITES <b>NURSES</b><small>LEARN. PRACTISE. EXCEL.</small></span></a><div class="auth-heading"><div class="eyebrow">WELCOME BACK</div><h1>Your study space<br/><em>is waiting.</em></h1><p>Log in to continue your preparation.</p></div><form onsubmit={(e) => { e.preventDefault(); window.location.href = '/dashboard'; }}><label>Email address<input type="email" bind:value={email} placeholder="you@example.com" required/></label><label>Password<div class="password-field"><input type={showPassword ? 'text' : 'password'} bind:value={password} placeholder="Enter your password" required/><button type="button" onclick={() => showPassword = !showPassword}>{#if showPassword}<EyeOff size={17}/>{:else}<Eye size={17}/>{/if}</button></div></label><div class="auth-options"><label class="remember"><input type="checkbox"/> Remember me</label><a href="/">Forgot password?</a></div><button class="button auth-submit" type="submit">Log in <ArrowLeft size={17}/></button></form><p class="auth-switch">New to the platform? <a href="/dashboard">Create an account</a></p><div class="auth-note"><BookOpen size={16}/> Your next step towards exam confidence.</div></div></div>

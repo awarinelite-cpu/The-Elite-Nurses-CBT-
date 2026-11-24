@@ -1,0 +1,11 @@
+<script lang="ts">
+  import { ArrowLeft, ArrowRight, ClipboardCheck, Clock3, FileText, Shuffle, Stethoscope, Trophy } from 'lucide-svelte';
+  const types = [
+    { title: 'Past Questions', description: 'Practise from verified past examination questions.', icon: FileText, tag: 'BUILD FAMILIARITY', href: '#past' },
+    { title: 'Mock Examinations', description: 'Experience a timed examination environment.', icon: ClipboardCheck, tag: 'EXAM SIMULATION', href: '#mock' },
+    { title: 'Subject Examinations', description: 'Focus your practice on one nursing subject.', icon: Stethoscope, tag: 'FOCUSED PRACTICE', href: '#subject' },
+    { title: 'Random Examinations', description: 'Challenge yourself with a mixed set of questions.', icon: Shuffle, tag: 'TEST YOURSELF', href: '#random' }
+  ];
+</script>
+<svelte:head><title>Exam Mode · THE ELITES NURSES</title></svelte:head>
+<div class="simple-app"><header class="simple-top"><a href="/dashboard" class="back-link"><ArrowLeft size={17}/> Dashboard</a><a class="brand compact-brand" href="/"><span class="brand-mark">E<span>+</span></span><span class="brand-name">THE ELITES <b>NURSES</b></span></a><span class="mode-label"><ClipboardCheck size={16}/> EXAM MODE</span></header><main class="simple-content"><div class="eyebrow">PUT YOUR KNOWLEDGE TO THE TEST</div><h1>Practise with purpose.<br/><em>Prepare with confidence.</em></h1><p class="simple-lead">Choose an examination style that fits your preparation. Your results will help you understand where to focus next.</p><div class="exam-note"><Clock3 size={20}/><div><b>Exam conditions, without the pressure.</b><p>Timed practice sessions will help you build familiarity with the CBT format and manage your time.</p></div></div><div class="exam-type-grid">{#each types as type, i}<a href="/exam-setup" class="exam-type-card"><div class="exam-card-top"><span class="exam-type-icon"><type.icon size={23}/></span><span>{type.tag}</span></div><h3>{type.title}</h3><p>{type.description}</p><div class="exam-card-action">Set up examination <ArrowRight size={16}/></div></a>{/each}</div><div class="exam-footer-note"><Trophy size={19}/><span>Your past results and performance insights will be available in your student dashboard.</span></div></main></div>
